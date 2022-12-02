@@ -1,0 +1,52 @@
+
+body{
+    background-color: blanchedalmond;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .palindrome {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    width: 10rem;
+    height: 10rem;
+    padding: 1rem;
+    background-color: brown;
+    border-radius: 4%;
+  }
+  .palindromeTrue {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    width: 10rem;
+    height: 10rem;
+    padding: 1rem;
+    background-color: green;
+    border-radius: 4%;
+  }
+  .description {
+    text-align: center;
+  }
+  h1{
+    color: gold;
+    font-size: 2rem;
+  }
+  p{
+    color: whitesmoke;
+    font-size: 1rem;
+  }
+  .innerSpaceUpDown{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .outerSpaceUpDown{
+    margin-top: 11%;
+    margin-bottom: auto;
+  }
