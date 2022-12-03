@@ -6,8 +6,8 @@ let language = {
       "Palindrome, is every " +
       "word or phrase that can be read backwards and that, regardless of " +
       "the direction, maintains its meaning.",
-      exemple: " Try it with the phrase “Dammit, I'm mad!”.",
-      usableExemple: "Dammit, I'm mad!",
+    exemple: " Try it with the phrase “Dammit, I'm mad!”.",
+    usableExemple: "Dammit, I'm mad!",
     verify: "Discover if your phrase is a palindrome!",
     verifyFalse: "No, it isn't a palindrome..",
     verifyTrue: "Yes, it's a palindrome",
@@ -18,8 +18,8 @@ let language = {
       "Palíndromo, é toda " +
       "palavra ou frase que pode ser lida de trás para frente e que, independentemente " +
       "a direção, mantém seu significado.",
-      exemple: "Tente a frase: Socorram-me, subi no ônibus em Marrocos!" ,
-      usableExemple: "Socorram-me, subi no ônibus em Marrocos!",
+    exemple: "Tente a frase: Socorram-me, subi no ônibus em Marrocos!",
+    usableExemple: "Socorram-me, subi no ônibus em Marrocos!",
     verify: "Descubra se a frase é um palíndromo!",
     verifyFalse: "Não isso não é um palíndromo..",
     verifyTrue: "Sim, é um palíndromo",
@@ -44,7 +44,6 @@ function checkPalindrome(inputString) {
   let text = charList.toString();
   let newText = removeSpecials(text);
   output.textContent = removeSpecials(inputString).toLowerCase();
-  console.log(result);
   isTextsEquals(validateWords(removeSpecials(inputString), newText));
 }
 function changeButtonContent(id, newContent) {
@@ -54,7 +53,6 @@ function changeButtonContent(id, newContent) {
 function isTextsEquals(condition) {
   if (condition) {
     transformStructure(true);
-    console.log("work");
   } else {
     transformStructure(false);
   }
@@ -65,21 +63,22 @@ function transformStructure(condition) {
     changeButtonContent("verify", "Yes, it's a palindrome!");
     if (window.location.hash == "#es") {
       verify.textContent = language.eng.verifyTrue;
-      exemple.textContent = '';
+      exemple.textContent = "";
     } else if (window.location.hash == "#ptBr") {
       verify.textContent = language.ptBr.verifyTrue;
-      exemple.textContent = '';
-      
+      exemple.textContent = "";
     }
   } else {
     setClass("palindrome", "palindrome");
     changeButtonContent("verify", "No, it isn't a palindrome..");
     if (window.location.hash == "#es") {
       verify.textContent = language.eng.verifyFalse;
+      exemple.textContent = "";
     } else if (window.location.hash == "#ptBr") {
       title.textContent = language.ptBr.title;
       content.textContent = language.ptBr.content;
-      verify.textContent = language.ptBr.verify;
+      verify.textContent = language.ptBr.verifyFalse;
+      exemple.textContent = "";
     }
   }
 }
@@ -132,12 +131,15 @@ if (window.location.hash) {
     description.textContent = language.ptBr.content;
     exemple.textContent = language.ptBr.exemple;
     verify.textContent = language.ptBr.verify;
+  }
 }
-}
-function setExemple(){
+function setExemple() {
   if (window.location.hash != "#ptBr") {
     input.textContent = language.eng.usableExemple;
   } else if (window.location.hash == "#ptBr") {
     input.textContent = language.ptBr.usableExemple;
+  }
 }
+function resetPage(){
+  location.reload();
 }
