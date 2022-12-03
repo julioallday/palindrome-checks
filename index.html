@@ -9,29 +9,55 @@
     <title>Palindrome Verification</title>
   </head>
   <body>
-    <div class="container outerSpaceUpDown">
+    <header>
+      <div style="display: flex; flex-direction: row-reverse">
+        <button
+          class="lang-button"
+          type="button"
+          onclick="changeLanguage('ptBr')">
+          Português
+        </button>
+        <button
+          class="lang-button"
+          type="button"
+          onclick="changeLanguage('es')">
+          English
+        </button>
+      </div>
+    </header>
+    <div class="container">
       <div id="palindrome">
         <div class="text">
-          <h1 class="innerSpaceUpDown">Palindrome</h1>
-          <p class="description internSpaceUpDown">
-            Palindrome, from the Greek palin (new) and dromo (route), is every word or phrase that can be read backwards and that, regardless of the direction, maintains its meaning.
-          </p>
+          <h1 id="title" class="innerSpaceUpDown">Palindrome</h1>
+          <p id="description" class="description internSpaceUpDown"></p>
         </div>
+
         <div class="input">
-          <textarea 
-          class="outerSpaceUpDown borda-arredondada-p" 
-          id="input"
-          rows="5"
-          cols="30"
-          wrap="soft"
-          autocomplete="on"
-          autofocus
-          ></textarea>
-          <button id="verify" class="borda-arredondada-p" onclick="handleInput()" type="button">Discover if your phrase is a palindrome!</button>
+          <form class="form" onsubmit="event.preventDefault()">
+            <textarea
+              class="input borda-arredondada-p"
+              id="input"
+              name="text"
+              rows="5"
+              cols="28"
+              wrap="soft"
+              autocomplete="on"
+              autofocus></textarea>
+            <button
+              id="verify"
+              class="borda-arredondada-p"
+              onclick="(handleInput())"
+              type="submit">
+              Discover if your phrase is a palindrome!
+            </button>
+          </form>
+          <div>
+            <a onclick="setExemple()"><p id="exemple"></p></a>
+            <p id="output"></p>
+          </div>
         </div>
       </div>
     </div>
-
     <script src="./js/app.js"></script>
   </body>
 </html>
