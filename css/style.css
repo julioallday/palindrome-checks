@@ -21,9 +21,8 @@ body{
     text-align: center;
     flex-direction: column;
     align-items: center;
-    max-height: fit-content;
     width: 60%;
-    height: 60%;
+    height: fit-content;
     padding: 1rem 1rem 2rem 1rem;
     background-color: brown;
     border-radius: 0.7rem;
@@ -33,7 +32,7 @@ body{
     text-align: center;
     flex-direction: column;
     width: 60%;
-    height: 60%;
+    height: fit-content
     padding: 1rem 1rem 2rem 1rem;
     background-color: green;
     border-radius: 0.7rem;
@@ -41,6 +40,7 @@ body{
   }
   .description {
     text-align: center;
+    height: fit-content;
   }
   h1{
     color: gold;
@@ -49,6 +49,8 @@ body{
   p{
     color: whitesmoke;
     font-size: 1.3rem;
+    height: fit-content;
+    width: fit-content;
   }
   textarea{
     resize: none;
@@ -68,10 +70,7 @@ body{
     cursor: pointer;
 
   }
-  #verify:focus{
-    border: none;
-  }
-  #verify:active{
+  #verify:is(:focus, :active){
     border: none;
   }
   #verify:hover{
@@ -82,6 +81,7 @@ body{
   }
   #exemple{
     cursor: pointer;
+    text-align: center;
   }
   #exemple:hover{
    background-clip: content-box;
@@ -105,7 +105,7 @@ body{
   }
   .lang-button{
     margin: 0.5rem;
-    width: 8%;
+    width: 80px;
   }
   .input{
     display: flex;
@@ -114,9 +114,18 @@ body{
     height: 30%;
   }
   .input-text{
-    width: 82%;
+    width: 83%;
     height: 30%;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    border: none;
+  }
+  .input-text:is(:focus,:active){
+    border: none;
+  }
+  .base{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   #reset{
     border: none;
