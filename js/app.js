@@ -21,15 +21,10 @@ let language = {
     exemple: "Tente a frase: Socorram-me, subi no ônibus em Marrocos!",
     usableExemple: "Socorram-me, subi no ônibus em Marrocos!",
     verify: "Descubra se a frase é um palíndromo!",
-    verifyFalse: "Não isso não é um palíndromo..",
+    verifyFalse: "Não, isso não é um palíndromo..",
     verifyTrue: "Sim, é um palíndromo",
   },
 };
-title.textContent = language.eng.title;
-description.textContent = language.eng.content;
-exemple.textContent = language.eng.exemple;
-
-setClass("palindrome", "palindrome");
 
 function setClass(id, className) {
   let element = document.getElementById(id);
@@ -38,6 +33,7 @@ function setClass(id, className) {
 function handleInput() {
   let el_input = document.getElementById("input");
   checkPalindrome(el_input.value);
+  
 }
 function checkPalindrome(inputString) {
   let charList = textReverse(inputString);
@@ -51,6 +47,7 @@ function changeButtonContent(id, newContent) {
   el_button.innerText = newContent.toString();
 }
 function isTextsEquals(condition) {
+  
   if (condition) {
     transformStructure(true);
   } else {
@@ -115,23 +112,9 @@ function validateWords(word1, word2) {
   }
   false;
 }
-
 function changeLanguage(lang) {
   location.hash = lang;
   location.reload();
-}
-
-if (window.location.hash) {
-  if (window.location.hash != "#ptBr") {
-    title.textContent = language.eng.title;
-    description.textContent = language.eng.content;
-    exemple.textContent = language.eng.exemple;
-  } else if (window.location.hash == "#ptBr") {
-    title.textContent = language.ptBr.title;
-    description.textContent = language.ptBr.content;
-    exemple.textContent = language.ptBr.exemple;
-    verify.textContent = language.ptBr.verify;
-  }
 }
 function setExemple() {
   if (window.location.hash != "#ptBr") {
@@ -140,6 +123,27 @@ function setExemple() {
     input.textContent = language.ptBr.usableExemple;
   }
 }
-function resetPage(){
+function resetPage() {
   location.reload();
 }
+function main() {
+  title.textContent = language.eng.title;
+  description.textContent = language.eng.content;
+  exemple.textContent = language.eng.exemple;
+  setClass("palindrome", "palindrome");
+  window.location.hash = "#es"
+  if (window.location.hash) {
+    if (window.location.hash != "#ptBr") {
+      title.textContent = language.eng.title;
+      description.textContent = language.eng.content;
+      exemple.textContent = language.eng.exemple;
+    } else if (window.location.hash == "#ptBr") {
+      title.textContent = language.ptBr.title;
+      description.textContent = language.ptBr.content;
+      exemple.textContent = language.ptBr.exemple;
+      verify.textContent = language.ptBr.verify;
+    }
+  }
+}
+
+main();
