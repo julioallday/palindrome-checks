@@ -112,7 +112,11 @@ body{
     flex-direction: column;
     width: 99%;
     height: 30%;
-
+  }
+  .input-text{
+    width: 83%;
+    height: 30%;
+    font-size: 1.3rem;
   }
   #reset{
     border: none;
