@@ -36,6 +36,7 @@ function handleInput() {
   
 }
 function checkPalindrome(inputString) {
+  exemple.textContent = "";
   let charList = textReverse(inputString);
   let text = charList.toString();
   let newText = removeSpecials(text);
@@ -60,22 +61,18 @@ function transformStructure(condition) {
     changeButtonContent("verify", "Yes, it's a palindrome!");
     if (window.location.hash == "#es") {
       verify.textContent = language.eng.verifyTrue;
-      exemple.textContent = "";
     } else if (window.location.hash == "#ptBr") {
       verify.textContent = language.ptBr.verifyTrue;
-      exemple.textContent = "";
     }
   } else {
     setClass("palindrome", "palindrome");
     changeButtonContent("verify", "No, it isn't a palindrome..");
     if (window.location.hash == "#es") {
       verify.textContent = language.eng.verifyFalse;
-      exemple.textContent = "";
     } else if (window.location.hash == "#ptBr") {
       title.textContent = language.ptBr.title;
       content.textContent = language.ptBr.content;
       verify.textContent = language.ptBr.verifyFalse;
-      exemple.textContent = "";
     }
   }
 }
