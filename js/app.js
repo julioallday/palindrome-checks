@@ -1,6 +1,6 @@
 let result;
 let language = {
-  eng:{
+  eng: {
     title: "Palindrome",
     content:
       "Palindrome, is every " +
@@ -12,12 +12,12 @@ let language = {
     verifyFalse: "No, it isn't a palindrome..",
     verifyTrue: "Yes, it's a palindrome",
   },
-  ptBr:{
+  ptBr: {
     title: "Palíndromo",
     content:
       "Palíndromo, é toda " +
-      "palavra ou frase que pode ser lida de trás para frente e que, independentemente " +
-      "a direção, mantém seu significado.",
+      "palavra ou frase que pode ser lida de trás para frente e que, independente " +
+      "da direção, mantém seu significado.",
     exemple: "Tente a frase: Socorram-me, subi no ônibus em Marrocos!",
     usableExemple: "Socorram-me, subi no ônibus em Marrocos!",
     verify: "Descubra se a frase é um palíndromo!",
@@ -25,15 +25,15 @@ let language = {
     verifyTrue: "Sim, é um palíndromo",
   },
 };
-function setClass(id, className){
+function setClass(id, className) {
   let element = document.getElementById(id);
   element.setAttribute("class", className);
 }
-function handleInput(){
+function handleInput() {
   let el_input = document.getElementById("input");
   checkPalindrome(el_input.value);
 }
-function checkPalindrome(inputString){
+function checkPalindrome(inputString) {
   exemple.textContent = "";
   let charList = textReverse(inputString);
   let text = charList.toString();
@@ -41,19 +41,18 @@ function checkPalindrome(inputString){
   output.textContent = removeSpecials(inputString).toLowerCase();
   isTextsEquals(validateWords(removeSpecials(inputString), newText));
 }
-function changeButtonContent(id, newContent){
+function changeButtonContent(id, newContent) {
   const el_button = document.getElementById(id);
   el_button.innerText = newContent.toString();
 }
-function isTextsEquals(condition){
-  
+function isTextsEquals(condition) {
   if (condition) {
     transformStructure(true);
   } else {
     transformStructure(false);
   }
 }
-function transformStructure(condition){
+function transformStructure(condition) {
   if (condition) {
     setClass("palindrome", "palindromeTrue");
     changeButtonContent("verify", "Yes, it's a palindrome!");
@@ -74,18 +73,18 @@ function transformStructure(condition){
     }
   }
 }
-function textReverse(string){
+function textReverse(string) {
   const letras = [];
   for (let i = string.length - 1; i >= 0; i--) {
     letras.push(string[i]);
   }
   return letras;
 }
-function removeQuotes(string){
+function removeQuotes(string) {
   let word = string.replaceAll(/,/g, "");
   return word;
 }
-function removeSpecials(string){
+function removeSpecials(string) {
   string = string.replaceAll(/[ÀÁÂÃÄÅ]/g, "A");
   string = string.replaceAll(/[àáâãäå]/g, "a");
   string = string.replaceAll(/[ÈÉÊË]/g, "E");
@@ -98,7 +97,7 @@ function removeSpecials(string){
   removeQuotes(string);
   return string;
 }
-function validateWords(word1, word2){
+function validateWords(word1, word2) {
   if (word1.length > 0 && word1.length <= 10 ** 5) {
     if (word1.toUpperCase() == word2.toUpperCase()) {
       return true;
@@ -107,26 +106,26 @@ function validateWords(word1, word2){
   }
   false;
 }
-function changeLanguage(lang){
+function changeLanguage(lang) {
   location.hash = lang;
   location.reload();
 }
-function setExemple(){
-  if (window.location.hash != "#ptBr"){
+function setExemple() {
+  if (window.location.hash != "#ptBr") {
     input.textContent = language.eng.usableExemple;
-  } else if (window.location.hash == "#ptBr"){
+  } else if (window.location.hash == "#ptBr") {
     input.textContent = language.ptBr.usableExemple;
   }
 }
-function resetPage(){
+function resetPage() {
   location.reload();
 }
-function main(){
+function main() {
   title.textContent = language.eng.title;
   description.textContent = language.eng.content;
   exemple.textContent = language.eng.exemple;
   setClass("palindrome", "palindrome");
-  if (window.location.hash){
+  if (window.location.hash) {
     if (window.location.hash != "#ptBr") {
       title.textContent = language.eng.title;
       description.textContent = language.eng.content;
